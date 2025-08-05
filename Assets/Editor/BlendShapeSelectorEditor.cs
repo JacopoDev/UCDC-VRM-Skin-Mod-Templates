@@ -1,5 +1,6 @@
 using Skin_Face_Expressions_Mod;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.Skins;
 using UnityEngine;
 using UnityEditor;
 

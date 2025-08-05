@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.Skins;
 using UnityEngine;
 
 namespace Cake_Girl_Mod

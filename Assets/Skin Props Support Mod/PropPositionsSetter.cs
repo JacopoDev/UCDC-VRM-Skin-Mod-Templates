@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Skin_Props_Support_Mod;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.Skins;
 using UCDC_Mod_Api.ModInterfaces.SkinLocators;
 using UnityEngine;
 
