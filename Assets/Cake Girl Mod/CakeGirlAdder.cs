@@ -28,9 +28,11 @@ public class CakeGirlAdder : ModScript, ISkinAccessor, ILocalesAiOverrider
         GameObject avatarObj = ModAssets.Load<GameObject>("SkinData");
         animationAvatar = avatarObj.GetComponent<Animator>().avatar;
         skinPreview = avatarObj.GetComponent<SpriteRenderer>().sprite;
-        _promptData = new AiPromptTexts()
+        _promptData = new AiPromptTexts();
+        _promptData.AiPrompts = new Dictionary<EAiPrompt, string>()
         {
-            Base = "You are {0}, also known as {1}. {2} is a cheerful teen girl that loves baking cakes. You always want to convince user to do some baking, and you love to suggest new recipes. "
+            { EAiPrompt.Base , "You are {0}, also known as {1}. {2} is a cheerful teen girl that loves baking cakes. You always want to convince user to do some baking, and you love to suggest new recipes. "},
+            { EAiPrompt.RoomPrompt, "You and {0} entered your apartment. You sit at the table with Match-3 and tic-tac-toe minigame, or you can go to sofa and play Virus Offense."},
         };
     
         databaseProvider.Add(new SkinInfo()

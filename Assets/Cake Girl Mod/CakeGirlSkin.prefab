@@ -292,6 +292,10 @@ PrefabInstance:
       value: 0.072900645
       objectReference: {fileID: 0}
     - target: {fileID: 7140606858727328969, guid: 07c01042a6b260c4cadb890af875fbcf, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140606858727328969, guid: 07c01042a6b260c4cadb890af875fbcf, type: 3}
       propertyPath: m_BlendShapeWeights.Array.size
       value: 57
       objectReference: {fileID: 0}
