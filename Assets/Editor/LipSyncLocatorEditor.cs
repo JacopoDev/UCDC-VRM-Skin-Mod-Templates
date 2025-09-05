@@ -1,17 +1,22 @@
-using Skin_Face_Expressions_Mod;
+﻿using Skin_Face_Expressions_Mod;
+using Skin_LipSync_Mod;
 using UCDC_Mod_Api.Models;
 using UCDC_Mod_Api.Models.Skins;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(BlendShapeSelector))]
-public class BlendShapeSelectorEditor : UnityEditor.Editor
+
+namespace Editor
 {
+    [CustomEditor(typeof(LipSyncDataLocator))]
+    public class LipSyncLocatorEditor : UnityEditor.Editor
+    {
+        
     string[] names;
 
     public override void OnInspectorGUI()
     {
-        var selector = (BlendShapeSelector)target;
+        var selector = (LipSyncDataLocator)target;
 
         // Mesh picker
         selector.selectedMesh = (SkinnedMeshRenderer)EditorGUILayout.ObjectField(
@@ -30,11 +35,13 @@ public class BlendShapeSelectorEditor : UnityEditor.Editor
                 for (int i = 0; i < count; i++)
                     names[i] = $"{i}: {mesh.GetBlendShapeName(i)}";
 
-                DrawExpression("Happy", selector.happy);
-                DrawExpression("Sad", selector.sad);
-                DrawExpression("Angry", selector.angry);
-                DrawExpression("Surprised", selector.surprised);
-                DrawExpression("Flirty", selector.flirty);
+                DrawExpression("a", selector.aMorph);
+                DrawExpression("i", selector.iMorph);
+                DrawExpression("u", selector.uMorph);
+                DrawExpression("e", selector.eMorph);
+                DrawExpression("o", selector.oMorph);
+                DrawExpression("n", selector.nMorph);
+                DrawExpression("-", selector.noneMorph);
             }
             else
             {
@@ -55,28 +62,16 @@ public class BlendShapeSelectorEditor : UnityEditor.Editor
         }
     }
 
-    void DrawExpression(string label, Expression expression)
+    void DrawExpression(string label, BlendShapeMorph expression)
     {
         EditorGUILayout.LabelField(label, EditorStyles.boldLabel);
 
-        // Buttons for list management
         EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("+", GUILayout.Width(25)))
-            expression.blendshapes.Add(new BlendShapeMorph());
-        if (GUILayout.Button("-", GUILayout.Width(25)) && expression.blendshapes.Count > 0)
-            expression.blendshapes.RemoveAt(expression.blendshapes.Count - 1);
+        expression.BlendShapeId = EditorGUILayout.Popup(expression.BlendShapeId, names);
+        expression.MorphValue = EditorGUILayout.Slider(expression.MorphValue, 0f, 100f);
         EditorGUILayout.EndHorizontal();
 
-        // Show each blendshape entry
-        for (int i = 0; i < expression.blendshapes.Count; i++)
-        {
-            var entry = expression.blendshapes[i];
-            EditorGUILayout.BeginHorizontal();
-            entry.BlendShapeId = EditorGUILayout.Popup(entry.BlendShapeId, names);
-            entry.MorphValue = EditorGUILayout.Slider(entry.MorphValue, 0f, 100f);
-            EditorGUILayout.EndHorizontal();
-        }
-
         EditorGUILayout.Space();
+    }
     }
 }

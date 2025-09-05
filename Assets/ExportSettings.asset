@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -2028264498, guid: 4d9ac0cbb6dcbc8428255d2df10dafee, type: 3}
   m_Name: ExportSettings
   m_EditorClassIdentifier: 
-  activeProfile: 10
+  activeProfile: 11
   exportProfiles:
   - referencePaths: []
     modName: Mita Basic Mod
@@ -105,6 +105,15 @@ MonoBehaviour:
     modVersion: 1.0.0
     modDescription: 
     modAssetPath: E:\Unity Projects\UCDC VRM skin mod example\Assets\Cake Girl Mod
+    modExportPath: 
+    modIcon: {fileID: 0}
+  - referencePaths: []
+    modName: Skin LipSync Mod
+    modAuthor: DefaultCompany
+    modVersion: 1.0.0
+    modDescription: 
+    modAssetPath: E:\Unity Projects\UCDC VRM skin mod example\Assets\Skin LipSync
+      Mod
     modExportPath: 
     modIcon: {fileID: 0}
   logLevel: 3
